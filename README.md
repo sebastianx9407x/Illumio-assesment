@@ -2,14 +2,14 @@
 
 ## Overview
 
-This is my submission for the technical assessment. My approach involves reading the lookup file and constructing a dictionary with the format (dstport, protocol): tag. After creating this lookup table, I process each log line individually, extracting the (dstport, protocol) attributes for that specific log entry. I then check if this combination exists in the previously created lookup table. If a match is found, the corresponding tag's count is incremented in a dictionary. Additionally, the (dstport, protocol) combinations are tracked and incremented in a separate dictionary
+This is my submission for the technical assessment. All implementation is done in parse_log_files.py. My approach involves reading the lookup file and constructing a dictionary with the format (dstport, protocol): tag. After creating this lookup table, I process each log line individually, extracting the (dstport, protocol) attributes for that specific log entry. I then check if this combination exists in the previously created lookup table. If a match is found, the corresponding tag's count is incremented in a dictionary. Additionally, the (dstport, protocol) combinations are tracked and incremented in a separate dictionary
 
 ## Assumptions
 
 ### Lookup Table File
 1. Program will raise error if there is failure to open
 2. The header column will always be present in the first row of the lookup file.
-3. The fields `dstport`, `protocol`, and `tag` will always be present in the lookup file, although their order may vary.
+3. The fields `dstport`, `protocol`, and `tag` will always be present in the lookup file in same order.
 4. If a row in the lookup file is missing a required field, the entire tag associated with that row will be skipped.
 
 ### Flow Log Records File
