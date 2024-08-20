@@ -1,0 +1,16 @@
+{
+    "version": 0,
+    "account_id": 1,
+    "interface_id": 2,
+    "srcaddr": 3,
+    "dstaddr": 4,
+    "srcport": 5,
+    "dstport": 6,
+    "protocol": 7,
+    "packets": 8,
+    "bytes": 9,
+    "start": 10,
+    "end": 11,
+    "action": 12,
+    "log_status": 13
+}
