@@ -127,7 +127,7 @@ def extract_log_data(log_lines : List[str],
     and the total hits for the tag
     """
     # List that contains the columns needed for lookup map
-    lookup_cols = [log_layout[header] for header in headers if header != "tag"] 
+    lookup_cols = [log_layout[header] for header in headers if header != "tag" and log_layout[header] < len(log_layout)] # not using tag and making sure indexs in 
     for log_line in log_lines:
         # Splitting log into tokens
         log_toks = split_line(log_line, " ")

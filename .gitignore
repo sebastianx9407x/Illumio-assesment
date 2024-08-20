@@ -1,2 +1,4 @@
 .vscode
 __pycache__/lookup_table.cpython-311.pyc
+tag_counts.txt
+port_protocol_comb.txt
