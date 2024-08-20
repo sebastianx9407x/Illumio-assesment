@@ -7,9 +7,10 @@ This is my submission for the technical assessment. My approach involves reading
 ## Assumptions
 
 ### Lookup Table File
-1. The header column will always be present in the first row of the lookup file.
-2. The fields `dstport`, `protocol`, and `tag` will always be present in the lookup file, although their order may vary.
-3. If a row in the lookup file is missing a required field, the entire tag associated with that row will be skipped.
+1. Program will raise error if there is failure to open
+2. The header column will always be present in the first row of the lookup file.
+3. The fields `dstport`, `protocol`, and `tag` will always be present in the lookup file, although their order may vary.
+4. If a row in the lookup file is missing a required field, the entire tag associated with that row will be skipped.
 
 ### Flow Log Records File
 1. The default v2 format for flow log records will always be used unless otherwise specified in the inputs.
@@ -32,20 +33,22 @@ This is my submission for the technical assessment. My approach involves reading
 Any other protocol will result in an error.
 
 ### Output File
-1. The counts of each tag will be written to a file called `tag_counts.txt`.
-2. The counts of port/protocol combinations will be written to `port_protocol_comb.txt`.
+1. The formats of the output file will be present like that of the email for the assessment and failure to write to either file will print error to the terminal
+2. Files will be created regardless if there is data or not
+3. The counts of each tag will be written to a file called `tag_counts.txt`.
+4. The counts of port/protocol combinations will be written to `port_protocol_comb.txt`.
 
 
 ## Analysis
 
 ### Data Structures
-- **Lookup Table**: A dictionary mapping tuples of log attributes to tags which would take O(t) space where t is the number of mappings in the layout table and worse case is t.
-- **Log Combination Table**: A dictionary tracking counts of different combinations of flow log (dstport, protocol) combos and would be O(p * n) where p is the total number of ports and n is the total number protocols is the number of mappings in the flow log records.
-- **Tag Count**: A dictionary recording how many times each tag is encountered ould be O(t) where t is the number of mappings in the layout table since worse case scenario there is t unique tags.
-- **Space**: From this we can conclude that the Space complexity is 
+- **Lookup Table**: A dictionary mapping tuples of log attributes to tags would take O(t) space where t is the number of unique mappings in the layout table.
+- **Log Combination Table**: A dictionary tracking counts of different combinations of flow log (dstport, protocol) combos and would be O(p * n) where p is the total number of ports and n is the total number of protocols is the number of mappings in the flow log records.
+- **Tag Count**: A dictionary recording how many times each tag is encountered would be O(t) where t is the number of mappings in the layout table since worse case scenario there is t unique tags.
+- **Space**: From this, we can conclude that the Space complexity is 
 O(p*n) + 2*O(t) = O(p*n) + O(t) where p = total ports, n = total protocol and t = total unique tags 
 
-- **Time Complexity** The time complexity for this program could be pretty complex but for simplicity I would say O(n) + O(m) where n is the total number of lines in layout file and and m is the total number of lines in the flow log file since we read through both files only once.
+- **Time Complexity** The time complexity for this program could be pretty complex. Still, for simplicity, I would say O(3 * n) + O(13 * m ) = O(n) + O(m ) where n is the total number of lines in the lookup file and m is the total number of lines in the flow log file since we read through both files only once. I also use different methods like strip and split that would also iterate over these lines but would keep both linear. 
 ## How to Run
 
 1. **Required Files**:
@@ -54,6 +57,26 @@ O(p*n) + 2*O(t) = O(p*n) + O(t) where p = total ports, n = total protocol and t 
 
 2. **Optional File**:
    - **Custom Layout JSON**: If you are using a format other than the default v2, you can provide a custom JSON layout file. This file should be formatted similarly to `sample_layout.json` and must include mappings for `dstport` and `protocol`.
+
+     ```json
+     "field, column"
+     {
+    "version": 0,
+    "account_id": 1,
+    "interface_id": 2,
+    "srcaddr": 3,
+    "dstaddr": 4,
+    "srcport": 5,
+    "dstport": 6,
+    "protocol": 7,
+    "packets": 8,
+    "bytes": 9,
+    "start": 10,
+    "end": 11,
+    "action": 12,
+    "log_status": 13
+}
+     ```
 
 3. **Run the Script**:
 - layout
