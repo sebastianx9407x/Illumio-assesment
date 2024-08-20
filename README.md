@@ -9,7 +9,7 @@ This is my submission for the technical assessment. All implementation is done i
 ### Lookup Table File
 1. Program will raise error if there is failure to open
 2. The header column will always be present in the first row of the lookup file.
-3. The fields `dstport`, `protocol`, and `tag` will always be present in the lookup file, although their order may vary.
+3. The fields `dstport`, `protocol`, and `tag` will always be present in the lookup file in same order.
 4. If a row in the lookup file is missing a required field, the entire tag associated with that row will be skipped.
 
 ### Flow Log Records File
