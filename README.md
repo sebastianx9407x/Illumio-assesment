@@ -87,10 +87,10 @@ O(p*n) + 2*O(t) = O(p*n) + O(t) where p = total ports, n = total protocol and t 
     ```
 - ex1
     ```bash
-    python3 parse_log_files.py sample_lookup_table.csv 
+    python3 parse_log_files.py sample_files/sample_lookup_table.csv sample_files/sample_flow_logs.txt
     ```
 - ex2
     ```bash
-   python3 parse_log_files.py sample_lookup_table.csv sample_flow_logs.txt  
+   python3 parse_log_files.py sample_files/sample_lookup_table.csv sample_files/sample_flow_logs.txt sample_files/sample_layout.json
     ```
 
