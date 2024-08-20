@@ -85,7 +85,7 @@ def extract_tag_data(headers : List[str], tag_lines : List[str]) -> Tuple[Dict[T
     lookup_key_count = {} # Records different combinations of lookup table used
     lookup_table = {} # Lookup table made from lookup file, maps (log attributes) : tag
     
-    for tag_line in tag_lines: # ASSUMPTION: BLANK TAG LINES WILL BE CONSIDERED WILDCARD AND CHANGED TO *, VALUES WILL FOLLOW ORDER OF COLUMNS
+    for tag_line in tag_lines:
         # Splitting line into tokens, skipping empty lines
         tag_toks = split_line(tag_line, ",")
         if not tag_toks:
@@ -187,11 +187,10 @@ def open_file(file_path : str) -> List[str]:
             return file_lines
     except FileNotFoundError:
         # Handle the case where the file does not exist
-        print(f"Error: The file {file_path} does not exist.")
+        raise FileNotFoundError(f"Error: The file {file_path} does not exist.")
     except IOError as e:
         # Handle other I/O related errors
-        print(f"Error: An I/O error occurred: {e}")
-    return []
+        raise IOError(f"Error: An I/O error occurred: {e}")
 
 def split_line(line : str, delim : str) -> List[str]:
      # Cleaning line
