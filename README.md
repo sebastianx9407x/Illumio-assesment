@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is my submission for the technical assessment. My approach involves reading the lookup file and constructing a dictionary with the format (dstport, protocol): tag. After creating this lookup table, I process each log line individually, extracting the (dstport, protocol) attributes for that specific log entry. I then check if this combination exists in the previously created lookup table. If a match is found, the corresponding tag's count is incremented in a dictionary. Additionally, the (dstport, protocol) combinations are tracked and incremented in a separate dictionary
+This is my submission for the technical assessment. All implementation is done in parse_log_files.py. My approach involves reading the lookup file and constructing a dictionary with the format (dstport, protocol): tag. After creating this lookup table, I process each log line individually, extracting the (dstport, protocol) attributes for that specific log entry. I then check if this combination exists in the previously created lookup table. If a match is found, the corresponding tag's count is incremented in a dictionary. Additionally, the (dstport, protocol) combinations are tracked and incremented in a separate dictionary
 
 ## Assumptions
 
