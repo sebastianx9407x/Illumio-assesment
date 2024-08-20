@@ -59,23 +59,25 @@ O(p*n) + 2*O(t) = O(p*n) + O(t) where p = total ports, n = total protocol and t 
    - **Custom Layout JSON**: If you are using a format other than the default v2, you can provide a custom JSON layout file. This file should be formatted similarly to `sample_layout.json` and must include mappings for `dstport` and `protocol`.
 
      ```json
+     
      "field, column"
      {
-    "version": 0,
-    "account_id": 1,
-    "interface_id": 2,
-    "srcaddr": 3,
-    "dstaddr": 4,
-    "srcport": 5,
-    "dstport": 6,
-    "protocol": 7,
-    "packets": 8,
-    "bytes": 9,
-    "start": 10,
-    "end": 11,
-    "action": 12,
-    "log_status": 13
-}
+     
+         "version": 0,
+         "account_id": 1,
+         "interface_id": 2,
+         "srcaddr": 3,
+         "dstaddr": 4,
+         "srcport": 5,
+         "dstport": 6,
+         "protocol": 7,
+         "packets": 8,
+         "bytes": 9,
+         "start": 10,
+         "end": 11,
+         "action": 12,
+         "log_status": 13
+     }
      ```
 
 3. **Run the Script**:
